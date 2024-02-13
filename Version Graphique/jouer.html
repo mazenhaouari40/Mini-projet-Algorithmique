@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Jeu Pendu</title>
+    <script src="jeu_pendu.js"></script>
+    <link rel="stylesheet" href="style_jeu.css">
+</head>
+<body>
+    <script>
+        function run_wasm_niv(niveau) {
+                
+                var popup = document.getElementById("gameBlock");
+                popup.classList.add("hidden-show");
+
+                //console.log(niveau);
+                result = Module.ccall(
+                "set_user_input",
+                "string",
+                ["number"],
+                [niveau]
+                );
+                
+                document.getElementById("result_l").textContent =  result ;
+                
+                /*result3 = Module.ccall(
+                "set_jeu_param",
+                "void",
+                ["number"],
+                result2
+                );*/
+                
+               
+                
+            }
+            /*function run_wasm_test() {
+                result2 = Module.ccall(
+                "get_user_input",
+                "string",
+                null,
+                null
+                );
+
+                
+                
+                
+                console.log(result2); 
+                document.querySelector("#result_a").textContent =  result2 ;
+            }*/
+
+            function run_wasm_jeu(lettre) {
+                
+                result3 = Module.ccall(
+                "graph_jeu_pendu",
+                "string",
+                ["string"],
+                [lettre]
+                );
+
+                nbErreur = Module.ccall(
+                    "get_NbErreur",
+                    "number",
+                    null,
+                    null
+                );
+
+                document.getElementById("nberr").textContent = nbErreur;
+                var hangmanImage = document.getElementById("nb");
+               
+                hangmanImage.src = `images/hangman-${nbErreur}.svg`;
+
+                
+                console.log(result3); 
+                console.log(lettre);
+                
+              
+                document.getElementById("result_l").textContent =  result3 ;
+                
+            }
+    </script>
+
+    <!--<p>jouer</p>
+    <input type="number" id="niv" class="styled-input">
+    <button onclick="run_wasm_niv()" class="btn">deviner</button>
+        
+    <p id="result_a" class="result"></p>
+    <input type="text" id="lettre" class="styled-input">
+    <button onclick="run_wasm_jeu()" class="btn">deviner</button>
+        </button onclick="run_wasm_test()" class="btn">test</button>
+    <p id="result_l" class="result"></p>-->
+    
+    <div class="container">
+        <div class="hangman-box">
+            <img src="images/hangman-0.svg" alt="pendu" id="nb">
+            <h1>Jeu de Pendu</h1>
+        </div>
+        <div class="game-box">
+            <h1 id="head">selectionner un niveau : </h1>
+            <div class="buttons">
+                <button onclick="run_wasm_niv(1)" class="btn">Niveau 1</button>
+                <button onclick="run_wasm_niv(2)" class="btn">Niveau 2</button>
+                <button onclick="run_wasm_niv(3)" class="btn">Niveau 3</button>
+            </div>
+        <div class="hidden" id="gameBlock">
+        <p class="word" id="result_l">******</p>
+        <p class="nbErr" >nombre d'erreur: <span style="color: red;"><span id="nberr">0</span>/6</span></p>
+        
+        <div class="keyboard">
+            <button onclick="run_wasm_jeu('a')" class="btn">a</button> <button onclick="run_wasm_jeu('z')" class="btn">z</button> <button onclick="run_wasm_jeu('e')" class="btn">e</button> <button onclick="run_wasm_jeu('r')" class="btn">r</button> <br>
+             <button onclick="run_wasm_jeu('t')" class="btn">t</button> <button onclick="run_wasm_jeu('y')" class="btn">y</button> <button onclick="run_wasm_jeu('u')" class="btn">u</button> <button onclick="run_wasm_jeu('i')" class="btn">i</button> <br>
+            <button onclick="run_wasm_jeu('o')" class="btn">o</button> <button onclick="run_wasm_jeu('p')" class="btn">p</button> <button onclick="run_wasm_jeu('q')" class="btn">q</button> <button onclick="run_wasm_jeu('s')" class="btn">s</button> <br>
+            <button onclick="run_wasm_jeu('d')" class="btn">d</button> <button onclick="run_wasm_jeu('f')" class="btn">f</button> <button onclick="run_wasm_jeu('g')" class="btn">g</button> <button onclick="run_wasm_jeu('h')" class="btn">h</button> <br>
+            <button onclick="run_wasm_jeu('j')" class="btn">j</button> <button onclick="run_wasm_jeu('k')" class="btn">k</button> <button onclick="run_wasm_jeu('l')" class="btn">l</button> <button onclick="run_wasm_jeu('m')" class="btn">m</button> <br>
+            <button onclick="run_wasm_jeu('w')" class="btn">w</button> <button onclick="run_wasm_jeu('x')" class="btn">x</button> <button onclick="run_wasm_jeu('c')" class="btn">c</button> <button onclick="run_wasm_jeu('v')" class="btn">v</button> <br>
+             <button onclick="run_wasm_jeu('b')" class="btn">b</button>  <button onclick="run_wasm_jeu('n')" class="btn">n</button>
+        </div>
+        </div> 
+    </div>
+    </div>
+
+        
+</body>
+</html>
