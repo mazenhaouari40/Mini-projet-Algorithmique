@@ -10,9 +10,11 @@ version console:
 
 
 Fonctionnalités principales :
+
+
 Tout d’abord, un menu s’affiche, proposant au joueur les options suivantes :
 
-Jouer
+- Jouer
 - Ajouter un mot
 - Supprimer un mot
 - Rechercher un mot (en utilisant l’arbre binaire de recherche)
