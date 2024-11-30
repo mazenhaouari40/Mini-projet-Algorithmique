@@ -7,6 +7,8 @@ Nous avons conçu deux versions : une version console et une version graphique.
 
 L’objectif du jeu est de deviner un mot. Les opérations de recherche et de suppression des mots sont effectuées à l’aide d’un arbre binaire de recherche, ce qui facilite l’indexation des mots.
 version console:
+
+
 Fonctionnalités principales :
 Tout d’abord, un menu s’affiche, proposant au joueur les options suivantes :
 
