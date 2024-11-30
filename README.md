@@ -22,6 +22,10 @@ Niveau 3 : Deviner un mot de longueur supérieure à 7 caractères.
 
 
 
+https://github.com/user-attachments/assets/bd4ed8fe-f371-49ae-8260-88e06a01ab1b
+
+
+
 
 Version graphique :
 La version graphique suit le même principe que la version console, mais se distingue par son interface utilisateur.
