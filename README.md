@@ -21,7 +21,11 @@ Tout d’abord, un menu s’affiche, proposant au joueur les options suivantes :
 - Ensuite, le joueur choisit le niveau de difficulté. Il existe 3 niveaux :
 
 Niveau 1 : Deviner un mot de longueur maximale de 3 caractères.
+
+
 Niveau 2 : Deviner un mot dont la longueur est comprise entre 4 et 7 caractères.
+
+
 Niveau 3 : Deviner un mot de longueur supérieure à 7 caractères.
 
 
