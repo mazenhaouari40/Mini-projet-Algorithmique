@@ -42,3 +42,5 @@ L’interface a été développée en HTML et CSS.
 Pour exécuter le code écrit en langage C dans un environnement web, nous avons utilisé WebAssembly, qui permet de faire fonctionner du code C directement dans le navigateur.
 Vous pouvez consulter notre projet en cliquant le lien ci-dessous :
 
+https://yaziddh.github.io/Hangman-Game-in-Fr/
+
